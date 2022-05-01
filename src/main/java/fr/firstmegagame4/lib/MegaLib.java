@@ -12,6 +12,5 @@ public class MegaLib implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initialize FirstMegaGame4 Library");
-        new CustomOre().setVeinSize(4).setNumVeins(12).setMinHeight(12).setMaxHeight(48).overworldOre().register(Blocks.BLACK_WOOL, "black_wool");
     }
 }
