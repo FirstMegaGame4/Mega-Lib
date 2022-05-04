@@ -15,10 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "fr.firstmegagame4.lib.client.MegaLibClient"
+      "fr.firstmegagame4.mega_lib.lib.client.MegaLibClient"
     ],
     "main": [
-      "fr.firstmegagame4.lib.MegaLib"
+      "fr.firstmegagame4.mega_lib.MegaLib"
     ]
   },
   "mixins": [

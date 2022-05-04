@@ -1,4 +1,4 @@
-package fr.firstmegagame4.lib.generation.ores;
+package fr.firstmegagame4.mega_lib.lib.generation.ores;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -56,6 +56,10 @@ public class CustomOre {
 
     public CustomEnderOre enderOre() {
         return new CustomEnderOre(this);
+    }
+
+    public CustomDimensionOre customDimensionOre(String dimensionIdentifier) {
+        return new CustomDimensionOre(this, new Identifier(dimensionIdentifier));
     }
 
     protected void registerOre(Block block, String blockId, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {

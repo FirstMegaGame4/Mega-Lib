@@ -1,4 +1,4 @@
-package fr.firstmegagame4.lib.generation.ores;
+package fr.firstmegagame4.mega_lib.lib.generation.ores;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.Block;
