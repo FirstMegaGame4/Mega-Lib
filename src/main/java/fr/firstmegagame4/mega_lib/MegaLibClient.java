@@ -1,4 +1,4 @@
-package fr.firstmegagame4.mega_lib.lib.client;
+package fr.firstmegagame4.mega_lib;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.Environment;

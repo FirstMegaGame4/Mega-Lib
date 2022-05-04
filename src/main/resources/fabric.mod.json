@@ -15,7 +15,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "fr.firstmegagame4.mega_lib.lib.client.MegaLibClient"
+      "fr.firstmegagame4.mega_lib.MegaLibClient"
     ],
     "main": [
       "fr.firstmegagame4.mega_lib.MegaLib"
