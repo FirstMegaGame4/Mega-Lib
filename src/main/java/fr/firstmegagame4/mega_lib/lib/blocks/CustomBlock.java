@@ -1,6 +1,7 @@
 package fr.firstmegagame4.mega_lib.lib.blocks;
 
 import fr.firstmegagame4.mega_lib.lib.utils.RegistrationUtils;
+import fr.firstmegagame4.mega_lib.lib.utils.RenderLayerUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -36,5 +37,15 @@ public class CustomBlock extends Block {
             RegistrationUtils.registerBlock(identifier, this);
         }
         this.registered = true;
+    }
+
+    // Client
+    public void cutout() {
+        RenderLayerUtils.setCutout(this);
+    }
+
+    // Client
+    public void translucent() {
+        RenderLayerUtils.setTranslucent(this);
     }
 }
