@@ -34,9 +34,6 @@ public class CustomBlock extends Block {
     public void register(Identifier identifier) {
         if (!this.registered) {
             RegistrationUtils.registerBlock(identifier, this);
-            if (this.item != null) {
-                RegistrationUtils.registerItem(identifier, this.getItem());
-            }
         }
         this.registered = true;
     }

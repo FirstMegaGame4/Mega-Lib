@@ -12,6 +12,6 @@ public class RegistrationUtils {
 
     public static void registerBlock(Identifier identifier, CustomBlock block) {
         Registry.register(Registry.BLOCK, identifier, block);
-        registerItem(identifier, block.getItem());
+        if (block.getItem() != null) registerItem(identifier, block.getItem());
     }
 }
