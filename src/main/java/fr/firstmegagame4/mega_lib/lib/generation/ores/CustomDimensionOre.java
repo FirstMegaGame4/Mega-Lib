@@ -17,9 +17,9 @@ public class CustomDimensionOre extends CustomOre {
         this.dimensionIdentifier = identifier;
     }
 
-    public void register(Block block, String blockId) {
+    public void register(Block block) {
         if (this.dimensionIdentifier != null) {
-            this.registerOre(block, blockId, null, context -> context.canGenerateIn(RegistryKey.of(Registry.DIMENSION_KEY, this.dimensionIdentifier)));
+            this.registerOre(block, null, context -> context.canGenerateIn(RegistryKey.of(Registry.DIMENSION_KEY, this.dimensionIdentifier)));
         }
     }
 }

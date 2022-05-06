@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MegaLib implements MegaLibModInitializer {
-
     public static final List<String> megaLibModIdentifiers = new ArrayList<>();
 
     @Override

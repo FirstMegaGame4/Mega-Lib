@@ -62,9 +62,11 @@ public class CustomOre {
         return new CustomDimensionOre(this, new Identifier(dimensionIdentifier));
     }
 
-    protected void registerOre(Block block, String blockId, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {
+    protected void registerOre(Block block, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {
 
-        Identifier generationIdentifier = new Identifier("mega_lib", blockId + "_generation");
+        Identifier blockId = Registry.BLOCK.getId(block);
+
+        Identifier generationIdentifier = new Identifier(blockId.getNamespace(), blockId.getPath() + "_generation");
 
         ConfiguredFeature<?, ?> configuredFeature = new ConfiguredFeature<>(
                 Feature.ORE, new OreFeatureConfig(ruleTest, block.getDefaultState(), this.veinSize
