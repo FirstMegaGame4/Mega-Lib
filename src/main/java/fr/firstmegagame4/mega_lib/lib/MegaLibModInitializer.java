@@ -5,6 +5,8 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.OverridingMethodsMustInvokeSuper;
+
 public interface MegaLibModInitializer extends ModInitializer {
     String getIdentifier();
 
@@ -14,7 +16,9 @@ public interface MegaLibModInitializer extends ModInitializer {
         return LoggerFactory.getLogger(this.getModName());
     }
 
-    default void registerMegaLibMod() {
-        MegaLib.megaLibModIdentifiers.add(this.getIdentifier());
+    @Override
+    @OverridingMethodsMustInvokeSuper
+    default void onInitialize() {
+        if (!this.getIdentifier().equals("mega_lib")) MegaLib.megaLibModIdentifiers.add(this.getIdentifier());
     }
 }

@@ -21,6 +21,7 @@ public class MegaLib implements MegaLibModInitializer {
 
     @Override
     public void onInitialize() {
+        MegaLibModInitializer.super.onInitialize();
         this.getLogger().info("Initialize " + this.getModName());
         String modList = "Mega Library Mods :";
         for (String modIdentifier: megaLibModIdentifiers) {
@@ -29,4 +30,5 @@ public class MegaLib implements MegaLibModInitializer {
         modList = StringUtils.chop(modList);
         this.getLogger().info(modList);
     }
+
 }

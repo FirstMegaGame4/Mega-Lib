@@ -1,16 +1,16 @@
 package fr.firstmegagame4.mega_lib.lib.blocks;
 
-import fr.firstmegagame4.mega_lib.lib.utils.RegistrationUtils;
 import fr.firstmegagame4.mega_lib.lib.utils.RenderLayerUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.Identifier;
 
-public class CustomBlock extends Block {
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class CustomBlock extends Block implements BlockRegistrable {
+    private final AtomicBoolean registered = new AtomicBoolean(false);
     private BlockItem item = null;
-    private boolean registered = false;
 
     public CustomBlock(Settings settings) {
         this(settings, false);
@@ -32,13 +32,6 @@ public class CustomBlock extends Block {
         return this.item;
     }
 
-    public void register(Identifier identifier) {
-        if (!this.registered) {
-            RegistrationUtils.registerBlock(identifier, this);
-        }
-        this.registered = true;
-    }
-
     // Client
     public void cutout() {
         RenderLayerUtils.setCutout(this);
@@ -47,5 +40,15 @@ public class CustomBlock extends Block {
     // Client
     public void translucent() {
         RenderLayerUtils.setTranslucent(this);
+    }
+
+    @Override
+    public boolean isNotRegistered() {
+        return registered.get();
+    }
+
+    @Override
+    public void setRegistered() {
+        registered.set(true);
     }
 }
