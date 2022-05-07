@@ -1,11 +1,12 @@
 package fr.firstmegagame4.mega_lib;
 
-import net.fabricmc.api.ClientModInitializer;
+import fr.firstmegagame4.mega_lib.lib.initialization.MegaLibClientModInitializer;
 import net.fabricmc.api.Environment;
 
 @Environment(net.fabricmc.api.EnvType.CLIENT)
-public class MegaLibClient implements ClientModInitializer {
+public abstract class MegaLibClient implements MegaLibClientModInitializer {
     @Override
     public void onInitializeClient() {
+        MegaLibClientModInitializer.super.onInitializeClient();
     }
 }

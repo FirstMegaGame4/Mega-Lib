@@ -18,8 +18,6 @@ public interface MegaLibModInitializer extends ModInitializer {
 
     ItemsInitializer getItemsInitializer();
 
-    ScreensInitializer getScreensInitializer();
-
     default Logger getLogger() {
         return LoggerFactory.getLogger(this.getModName());
     }
@@ -32,6 +30,5 @@ public interface MegaLibModInitializer extends ModInitializer {
         this.getBlocksInitializer().registerOres();
         this.getBlockEntitiesInitializer().register();
         this.getItemsInitializer().register();
-        this.getScreensInitializer().register();
     }
 }
