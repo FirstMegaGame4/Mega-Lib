@@ -1,34 +1,28 @@
 package fr.firstmegagame4.mega_lib;
 
-import fr.firstmegagame4.mega_lib.lib.initialization.MegaLibModInitializer;
+import net.fabricmc.api.ModInitializer;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MegaLib implements MegaLibModInitializer {
+public class MegaLib implements ModInitializer {
+    public static final Logger LOGGER = LoggerFactory.getLogger("Mega Library");
     public static final List<String> megaLibModIdentifiers = new ArrayList<>();
 
-    @Override
-    public String getIdentifier() {
-        return "mega_lib";
-    }
-
-    @Override
     public String getModName() {
         return "Mega Library";
     }
 
-    @Override
     public void onInitialize() {
-        MegaLibModInitializer.super.onInitialize();
-        this.getLogger().info("Initialize " + this.getModName());
+        LOGGER.info("Initialize " + this.getModName());
         String modList = "Mega Library Mods :";
         for (String modIdentifier: megaLibModIdentifiers) {
             modList = modList.concat(" " + modIdentifier + ",");
         }
         modList = StringUtils.chop(modList);
-        this.getLogger().info(modList);
+        LOGGER.info(modList);
     }
-
 }

@@ -16,6 +16,8 @@ public interface MegaLibModInitializer extends ModInitializer {
 
     BlockEntitiesInitializer getBlockEntitiesInitializer();
 
+    OresInitializer getOresInitializer();
+
     ItemsInitializer getItemsInitializer();
 
     default Logger getLogger() {
@@ -25,10 +27,10 @@ public interface MegaLibModInitializer extends ModInitializer {
     @Override
     @OverridingMethodsMustInvokeSuper
     default void onInitialize() {
-        if (!this.getIdentifier().equals("mega_lib")) MegaLib.megaLibModIdentifiers.add(this.getIdentifier());
+        MegaLib.megaLibModIdentifiers.add(this.getModName() + "[" + this.getIdentifier() + "]");
         this.getBlocksInitializer().register();
-        this.getBlocksInitializer().registerOres();
         this.getBlockEntitiesInitializer().register();
+        this.getOresInitializer().register();
         this.getItemsInitializer().register();
     }
 }
