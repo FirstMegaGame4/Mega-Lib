@@ -1,4 +1,4 @@
-package fr.firstmegagame4.mega_lib.lib;
+package fr.firstmegagame4.mega_lib.lib.initialization;
 
 import fr.firstmegagame4.mega_lib.MegaLib;
 import net.fabricmc.api.ModInitializer;
@@ -12,6 +12,14 @@ public interface MegaLibModInitializer extends ModInitializer {
 
     String getModName();
 
+    BlocksInitializer getBlocksInitializer();
+
+    BlockEntitiesInitializer getBlockEntitiesInitializer();
+
+    ItemsInitializer getItemsInitializer();
+
+    ScreensInitializer getScreensInitializer();
+
     default Logger getLogger() {
         return LoggerFactory.getLogger(this.getModName());
     }
@@ -20,5 +28,10 @@ public interface MegaLibModInitializer extends ModInitializer {
     @OverridingMethodsMustInvokeSuper
     default void onInitialize() {
         if (!this.getIdentifier().equals("mega_lib")) MegaLib.megaLibModIdentifiers.add(this.getIdentifier());
+        this.getBlocksInitializer().register();
+        this.getBlocksInitializer().registerOres();
+        this.getBlockEntitiesInitializer().register();
+        this.getItemsInitializer().register();
+        this.getScreensInitializer().register();
     }
 }

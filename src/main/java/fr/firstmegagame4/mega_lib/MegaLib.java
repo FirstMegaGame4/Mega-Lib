@@ -1,12 +1,12 @@
 package fr.firstmegagame4.mega_lib;
 
-import fr.firstmegagame4.mega_lib.lib.MegaLibModInitializer;
+import fr.firstmegagame4.mega_lib.lib.initialization.MegaLibModInitializer;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MegaLib implements MegaLibModInitializer {
+public abstract class MegaLib implements MegaLibModInitializer {
     public static final List<String> megaLibModIdentifiers = new ArrayList<>();
 
     @Override
