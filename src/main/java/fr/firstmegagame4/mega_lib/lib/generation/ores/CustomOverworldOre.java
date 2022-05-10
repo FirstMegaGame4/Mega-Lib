@@ -20,10 +20,10 @@ public class CustomOverworldOre extends CustomOre {
         return this;
     }
 
-    public void register(Block block) {
+    public void register(Block block, String generationId) {
         RuleTest ruleTest;
         if (!this.deepslateOre) ruleTest = OreConfiguredFeatures.STONE_ORE_REPLACEABLES;
         else ruleTest = OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES;
-        this.registerOre(block, ruleTest, BiomeSelectors.foundInOverworld());
+        this.registerOre(block, generationId, ruleTest, BiomeSelectors.foundInOverworld());
     }
 }

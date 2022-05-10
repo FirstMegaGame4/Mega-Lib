@@ -1,5 +1,6 @@
 package fr.firstmegagame4.mega_lib.lib.generation.ores;
 
+import fr.firstmegagame4.mega_lib.MegaLib;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.block.Block;
@@ -62,11 +63,11 @@ public class CustomOre {
         return new CustomDimensionOre(this, new Identifier(dimensionIdentifier));
     }
 
-    protected void registerOre(Block block, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {
+    protected void registerOre(Block block, String generationId, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {
 
-        Identifier blockId = Registry.BLOCK.getId(block);
+        String modId = Registry.BLOCK.getId(block).getNamespace();
 
-        Identifier generationIdentifier = new Identifier(blockId.getNamespace(), blockId.getPath() + "_generation");
+        Identifier generationIdentifier = new Identifier(modId, generationId);
 
         ConfiguredFeature<?, ?> configuredFeature = new ConfiguredFeature<>(
                 Feature.ORE, new OreFeatureConfig(ruleTest, block.getDefaultState(), this.veinSize
