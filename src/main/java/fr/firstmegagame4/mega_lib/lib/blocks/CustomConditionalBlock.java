@@ -4,6 +4,8 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.ItemGroup;
 
 public class CustomConditionalBlock extends AbstractConditionalBlock implements ConditionalBlock<CustomBlock> {
+    private CustomBlock block = null;
+
     public CustomConditionalBlock(AbstractBlock.Settings settings) {
         super(settings);
     }
@@ -18,6 +20,11 @@ public class CustomConditionalBlock extends AbstractConditionalBlock implements 
 
     @Override
     public CustomBlock create() {
-        return new CustomBlock(this.settings, this.hasItem, this.itemGroup);
+        return this.block = new CustomBlock(this.settings, this.hasItem, this.itemGroup);
+    }
+
+    @Override
+    public CustomBlock getIfCreated() {
+        return this.block;
     }
 }
