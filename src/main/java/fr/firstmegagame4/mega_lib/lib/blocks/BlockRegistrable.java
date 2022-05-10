@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public interface BlockRegistrable extends Registrable {
     default void register(Identifier identifier) {
-        if (this instanceof CustomBlock && this.isNotRegistered()) {
+        if (this.isNotRegistered()) {
             RegistrationUtils.registerBlock(identifier, (CustomBlock) this);
             this.setRegistered();
         }
@@ -16,7 +16,7 @@ public interface BlockRegistrable extends Registrable {
 
     @Deprecated
     default void register(Identifier identifier, BlockItem blockItem) {
-        if (this instanceof Block && this.isNotRegistered()) {
+        if (this.isNotRegistered()) {
             RegistrationUtils.registerNormalBlock(identifier, (Block) this, blockItem);
             this.setRegistered();
         }
