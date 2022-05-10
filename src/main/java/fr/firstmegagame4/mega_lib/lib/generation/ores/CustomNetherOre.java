@@ -12,6 +12,7 @@ public class CustomNetherOre extends CustomOre {
         this.maxHeight = ore.maxHeight;
     }
 
+    @Override
     public void register(Block block, String generationId) {
         this.registerOre(block, generationId, OreConfiguredFeatures.NETHERRACK, BiomeSelectors.foundInTheNether());
     }

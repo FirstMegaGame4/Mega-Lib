@@ -3,6 +3,7 @@ package fr.firstmegagame4.mega_lib.lib.generation.ores;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.Block;
 import net.minecraft.structure.rule.RuleTest;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 
 public class CustomOverworldOre extends CustomOre {
@@ -20,6 +21,7 @@ public class CustomOverworldOre extends CustomOre {
         return this;
     }
 
+    @Override
     public void register(Block block, String generationId) {
         RuleTest ruleTest;
         if (!this.deepslateOre) ruleTest = OreConfiguredFeatures.STONE_ORE_REPLACEABLES;

@@ -1,6 +1,5 @@
 package fr.firstmegagame4.mega_lib.lib.generation.ores;
 
-import fr.firstmegagame4.mega_lib.MegaLib;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.block.Block;
@@ -63,8 +62,13 @@ public class CustomOre {
         return new CustomDimensionOre(this, new Identifier(dimensionIdentifier));
     }
 
-    protected void registerOre(Block block, String generationId, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {
+    public void register(Block block) {
+        this.register(block, Registry.BLOCK.getId(block).getPath());
+    }
 
+    protected void register(Block block, String generationId) {}
+
+    protected void registerOre(Block block, String generationId, RuleTest ruleTest, Predicate<BiomeSelectionContext> biomeSelectionContextPredicate) {
         String modId = Registry.BLOCK.getId(block).getNamespace();
 
         Identifier generationIdentifier = new Identifier(modId, generationId);
@@ -85,7 +89,6 @@ public class CustomOre {
 
         BiomeModifications.addFeature(biomeSelectionContextPredicate, GenerationStep.Feature.UNDERGROUND_ORES,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY, generationIdentifier));
-
     }
 
 }

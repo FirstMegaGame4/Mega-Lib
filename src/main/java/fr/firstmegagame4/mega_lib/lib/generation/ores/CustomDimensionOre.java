@@ -17,6 +17,7 @@ public class CustomDimensionOre extends CustomOre {
         this.dimensionIdentifier = identifier;
     }
 
+    @Override
     public void register(Block block, String generationId) {
         if (this.dimensionIdentifier != null) {
             this.registerOre(block, generationId, null, context -> context.canGenerateIn(RegistryKey.of(Registry.DIMENSION_KEY, this.dimensionIdentifier)));

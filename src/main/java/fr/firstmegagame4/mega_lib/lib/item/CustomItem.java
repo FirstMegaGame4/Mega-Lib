@@ -13,7 +13,7 @@ public class CustomItem extends Item implements ItemRegistrable {
 
     @Override
     public boolean isNotRegistered() {
-        return registered.get();
+        return !registered.get();
     }
 
     @Override

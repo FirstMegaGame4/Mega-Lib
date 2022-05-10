@@ -44,7 +44,7 @@ public class CustomBlock extends Block implements BlockRegistrable {
 
     @Override
     public boolean isNotRegistered() {
-        return registered.get();
+        return !registered.get();
     }
 
     @Override

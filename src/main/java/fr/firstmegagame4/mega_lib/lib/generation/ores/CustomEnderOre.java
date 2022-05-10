@@ -13,6 +13,7 @@ public class CustomEnderOre extends CustomOre {
         this.maxHeight = ore.maxHeight;
     }
 
+    @Override
     public void register(Block block, String generationId) {
         this.registerOre(block, generationId, new BlockMatchRuleTest(Blocks.END_STONE), BiomeSelectors.foundInTheEnd());
     }
