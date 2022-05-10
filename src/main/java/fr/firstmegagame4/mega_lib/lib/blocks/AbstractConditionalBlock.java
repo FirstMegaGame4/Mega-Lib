@@ -11,15 +11,15 @@ public abstract class AbstractConditionalBlock {
 
     protected final ItemGroup itemGroup;
 
-    protected AbstractConditionalBlock(AbstractBlock.Settings settings) {
+    public AbstractConditionalBlock(AbstractBlock.Settings settings) {
         this(settings, false);
     }
 
-    protected AbstractConditionalBlock(AbstractBlock.Settings settings, boolean hasItem) {
+    public AbstractConditionalBlock(AbstractBlock.Settings settings, boolean hasItem) {
         this(settings, hasItem, null);
     }
 
-    protected AbstractConditionalBlock(AbstractBlock.Settings settings, boolean hasItem, ItemGroup itemGroup) {
+    public AbstractConditionalBlock(AbstractBlock.Settings settings, boolean hasItem, ItemGroup itemGroup) {
         this.settings = settings;
         this.hasItem = hasItem;
         this.itemGroup = itemGroup;

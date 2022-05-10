@@ -4,15 +4,15 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.ItemGroup;
 
 public class CustomConditionalBlock extends AbstractConditionalBlock implements ConditionalBlock<CustomBlock> {
-    protected CustomConditionalBlock(AbstractBlock.Settings settings) {
+    public CustomConditionalBlock(AbstractBlock.Settings settings) {
         super(settings);
     }
 
-    protected CustomConditionalBlock(AbstractBlock.Settings settings, boolean hasItem) {
+    public CustomConditionalBlock(AbstractBlock.Settings settings, boolean hasItem) {
         super(settings, hasItem);
     }
 
-    protected CustomConditionalBlock(AbstractBlock.Settings settings, boolean hasItem, ItemGroup itemGroup) {
+    public CustomConditionalBlock(AbstractBlock.Settings settings, boolean hasItem, ItemGroup itemGroup) {
         super(settings, hasItem, itemGroup);
     }
 
