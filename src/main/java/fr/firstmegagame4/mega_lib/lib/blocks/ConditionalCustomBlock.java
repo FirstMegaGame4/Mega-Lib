@@ -27,4 +27,10 @@ public class ConditionalCustomBlock extends AbstractConditionalBlock implements 
     public CustomBlock getIfCreated() {
         return this.block;
     }
+
+    @Override
+    public CustomBlock getIfCreatedOrElse(CustomBlock customBlock) {
+        if (this.block != null) return this.block;
+        else return customBlock;
+    }
 }

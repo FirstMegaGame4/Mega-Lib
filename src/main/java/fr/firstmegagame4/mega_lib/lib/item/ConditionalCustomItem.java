@@ -18,4 +18,10 @@ public class ConditionalCustomItem extends AbstractConditionalItem implements Co
     public CustomItem getIfCreated() {
         return this.item;
     }
+
+    @Override
+    public CustomItem getIfCreatedOrElse(CustomItem customItem) {
+        if (this.item != null) return this.item;
+        else return customItem;
+    }
 }

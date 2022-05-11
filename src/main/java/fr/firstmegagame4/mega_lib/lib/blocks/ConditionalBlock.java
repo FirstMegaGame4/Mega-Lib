@@ -1,7 +1,5 @@
 package fr.firstmegagame4.mega_lib.lib.blocks;
 
-public interface ConditionalBlock<T extends CustomBlock> {
-    T create();
+import fr.firstmegagame4.mega_lib.lib.utils.ConditionalObject;
 
-    T getIfCreated();
-}
+public interface ConditionalBlock<T extends CustomBlock> extends ConditionalObject<T> {}

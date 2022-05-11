@@ -1,7 +1,5 @@
 package fr.firstmegagame4.mega_lib.lib.item;
 
-public interface ConditionalItem<T extends CustomItem> {
-    T create();
+import fr.firstmegagame4.mega_lib.lib.utils.ConditionalObject;
 
-    T getIfCreated();
-}
+public interface ConditionalItem<T extends CustomItem> extends ConditionalObject<T> {}
